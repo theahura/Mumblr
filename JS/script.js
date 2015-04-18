@@ -242,7 +242,7 @@ function showButtons(style) {
 
 function checkBadWords(transcript) {
 	var bool = false;
-	if ("uh" in transcript) || "um" in transcript) {
+	if ("uh" in transcript || "um" in transcript) {
 		//PLAY ARGH
 		bool = true;
 	}

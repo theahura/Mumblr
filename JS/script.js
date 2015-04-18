@@ -5,11 +5,12 @@ function arghPlay() {
 	argh.currentTime = 0;
 }
 
-<<<<<<< HEAD
+$(".button").click(function() {
+	$("#screen1").slideUp();
+	console.log("Success?");
+})	
 
-
-=======
-var recognizing = false;
+var recognitiongnizing = false;
 
 
 //init recognition things
@@ -45,4 +46,3 @@ function speechAnalysis(list) {
 		arghPlay();
 	}
 }
->>>>>>> origin/master

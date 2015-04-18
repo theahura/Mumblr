@@ -5,9 +5,23 @@ function arghPlay() {
 	argh.currentTime = 0;
 }
 
+var recognizing = false;
+
+
 //init recognition things
 var recognition = new webkitSpeechRecognition();
 recognition.lang = "en-US";
+
+recognition.onstart = function() {
+	recognizing = true;
+}
+
+recognition.onend = function() {
+	recognizing = false;
+}
+
+recognition.onresult() = function(event)
+
 
 //main function for speech interruption
 function speechAnalysis() {

@@ -10,8 +10,6 @@ $(".button").click(function() {
 	console.log("Success?");
 })	
 
-var recognitiongnizing = false;
-
 var recognizing = false;
 
 

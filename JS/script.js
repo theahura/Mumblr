@@ -40,12 +40,16 @@ recognition.onend = function() {
 }
 
 recognition.onresult = function(event) {
-	var i; 
-	for (i = 0; i < 4; i++)
-	{
-		phrase[i] = idunno;
+	for (var i = event.resultIndex; i < event.results.length; ++i) {
+		var j; 
+		for (j = 0; j < 4; j++)
+		{
+			phrase[j] = event.results[i][0].transcript;
+			++i;
+		}
+		speechAnalysis(phrase);
+		j = 0;
 	}
-	speechAnalysis(phrase);
 }
 
 function startButton(event) {

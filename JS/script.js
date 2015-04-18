@@ -1,6 +1,4 @@
 
-showInfo('info_start');
-
 
 var create_email = false;
 var final_transcript = '';
@@ -21,7 +19,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
   recognition.onstart = function() {
     recognizing = true;
-    showInfo('info_speak_now');
+    console.log("Speak now");
     start_img.src = 'mic-flashing.gif';
     console.log("working!")
   };
@@ -31,21 +29,21 @@ if (!('webkitSpeechRecognition' in window)) {
 
     if (event.error == 'no-speech') {
       start_img.src = 'microphone.png';
-      showInfo('info_no_speech');
+      console.log("No speech detected");
       ignore_onend = true;
     }
 
     if (event.error == 'audio-capture') {
       start_img.src = 'microphone.png';
-      showInfo('info_no_microphone');
+      console.log("There appears to be no microphone");
       ignore_onend = true;
     }
 
     if (event.error == 'not-allowed') {
       if (event.timeStamp - start_timestamp < 100) {
-        showInfo('info_blocked');
+        console.log("Your shit is blocked dude");
       } else {
-        showInfo('info_denied');
+        console.log("You've been denied access dude");
       }
       ignore_onend = true;
     }
@@ -62,16 +60,8 @@ if (!('webkitSpeechRecognition' in window)) {
 
     start_img.src = 'microphone.png';
     if (!final_transcript) {
-      showInfo('info_start');
+      console.log("START")
       return;
-    }
-
-    showInfo('');
-    if (window.getSelection) {
-      window.getSelection().removeAllRanges();
-      var range = document.createRange();
-      range.selectNode(document.getElementById('final_span'));
-      window.getSelection().addRange(range);
     }
 
     if (create_email) {
@@ -109,7 +99,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
 	function upgrade() {
 	  start_button.style.visibility = 'hidden';
-	  showInfo('info_upgrade');
+	  console.log("Upgrade your shit!");
 	}
 
 
@@ -146,8 +136,6 @@ if (!('webkitSpeechRecognition' in window)) {
 	    recognition.stop();
 	  }
 	  copy_button.style.display = 'none';
-	  copy_info.style.display = 'inline-block';
-	  showInfo('');
 	}
 
 
@@ -160,8 +148,6 @@ if (!('webkitSpeechRecognition' in window)) {
 	    createEmail();
 	  }
 	  email_button.style.display = 'none';
-	  email_info.style.display = 'inline-block';
-	  showInfo('');
 	}
 
 
@@ -177,23 +163,9 @@ if (!('webkitSpeechRecognition' in window)) {
 	  final_span.innerHTML = '';
 	  interim_span.innerHTML = '';
 	  start_img.src = 'microphone-disabled.png';
-	  showInfo('info_allow');
+	  console.log("Allow");
 	  showButtons('none');
 	  start_timestamp = event.timeStamp;
-	}
-
-
-	function showInfo(s) {
-	  if (s) {
-	    for (var child = info.firstChild; child; child = child.nextSibling) {
-	      if (child.style) {
-	        child.style.display = child.id == s ? 'inline' : 'none';
-	      }
-	    }
-	    info.style.visibility = 'visible';
-	  } else {
-	    info.style.visibility = 'hidden';
-	  }
 	}
 
 	var current_style;
@@ -207,8 +179,6 @@ if (!('webkitSpeechRecognition' in window)) {
 	  current_style = style;
 	  copy_button.style.display = style;
 	  email_button.style.display = style;
-	  copy_info.style.display = 'none';
-	  email_info.style.display = 'none';
 
 	}
 

@@ -11,7 +11,8 @@ $(".button").click(function() {
 })	
 
 var recognizing = false;
-
+var ignore_onend;
+var start_timestamp;
 
 //init recognition things
 var recognition = new webkitSpeechRecognition();
@@ -19,14 +20,23 @@ recognition.lang = "en-US";
 recognition.continuous = true;
 recognition.interimResults = true;
 
+var final_transcript;
 var phrase = [];
 
 recognition.onstart = function() {
 	recognizing = true;
 }
 
+recognition.onerror = function(event) {
+	if (event.error == 'no-speech') {
+		ignore_onend = true;
+	}
+	if (event.error == 'not-allowed') {
+
+	}
+}
 recognition.onend = function() {
-	recognizing = false;
+	recognizing = false;	
 }
 
 recognition.onresult = function(event) {
@@ -38,6 +48,16 @@ recognition.onresult = function(event) {
 	speechAnalysis(phrase);
 }
 
+function startButton(event) {
+	if (recognizing) {
+		recognition.stop();
+		return;
+	}
+	final_transcript = '';
+	recognition.start();
+	ignore_onend = false;
+	start_timestamp = event.timeStamp;
+}
 
 //main function for speech interruption
 function speechAnalysis(list) {

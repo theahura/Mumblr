@@ -1,6 +1,18 @@
+html
+{
+	height: 100%;
+	width: 100%;
+}
 body {
 	background-image: url("tile.png");
 	overflow: hidden;
+	height: 100%;	
+	width: 100%;
+}
+
+.spacer-30
+{
+	height: 30%;
 }
 
 .header {
@@ -15,6 +27,7 @@ body {
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	cursor: pointer;
 }
 
 .body {
@@ -38,4 +51,8 @@ body {
 	position: relative;
 	text-align: center;
 	padding-top: 400px;
+}
+
+
+#screen2 {
 }

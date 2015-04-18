@@ -365,10 +365,28 @@ function showInfo(s) {
 var current_style;
 var argh = new Audio ("argh.mp3");
       
-  function arghPlay() {
-    argh.play();
-    argh.currentTime = 0;
+function arghPlay() {
+  argh.play();
+  argh.currentTime = 0;
+}
+
+function checkBadWords(transcript) {
+    var bool = false;
+
+    if ("uh" in transcript || "um" in transcript) {
+      arghPlay();
+      bool = true;
+    }
+
+    if ("like" in transcript) {
+      arghPlay();
+      bool = true;
+    }
+
+    return bool;
   }
+
+
 function showButtons(style) {
   if (style == current_style) {
     return;

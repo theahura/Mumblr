@@ -27,25 +27,36 @@ recognition.onerror = function(event) {
 	if (event.error == 'no-speech') {
 		ignore_onend = true;
 	}
+	if (event.error == 'audio-capture') {
+		ignore_onend = true;
+	}
 	if (event.error == 'not-allowed') {
-
+		ignore_onend = true;
 	}
 }
+
 recognition.onend = function() {
 	recognizing = false;	
+	if (ignore_onend) {
+		return;
+	}
+	if (!final_transcript) {
+		return;
+	}
 }
 
 recognition.onresult = function(event) {
-	for (var i = event.resultIndex; i < event.results.length; ++i) {
-		var j; 
-		for (j = 0; j < 4; j++)
-		{
-			phrase[j] = event.results[i][0].transcript;
-			++i;
-		}
-		speechAnalysis(phrase);
-		j = 0;
-	}
+	 var interim_transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      } else {
+        interim_transcript += event.results[i][0].transcript;
+      }
+    }
+    final_transcript = capitalize(final_transcript);
+    final_span.innerHTML = linebreak(final_transcript);
+    interim_span.innerHTML = linebreak(interim_transcript);
 }
 
 function startButton(event) {
@@ -56,6 +67,8 @@ function startButton(event) {
 	final_transcript = '';
 	recognition.start();
 	ignore_onend = false;
+	final_span.innerHTML = '';
+ 	interim_span.innerHTML = '';
 	start_timestamp = event.timeStamp;
 }
 

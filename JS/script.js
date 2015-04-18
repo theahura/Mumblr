@@ -30,14 +30,14 @@ recognition.onresult = function(event) {
 
 
 //main function for speech interruption
-function speechAnalysis() {
-	if ("um" in recognition) {
+function speechAnalysis(list) {
+	if ("um" in list) {
 		arghPlay();
 	}
-	if ("uh in recognition") {
+	if ("uh" in list) {
 		arghPlay();
 	}
-	if ("like" in recognition) {
+	if ("like" in list) {
 		arghPlay();
 	}
 }

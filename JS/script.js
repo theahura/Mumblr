@@ -29,7 +29,12 @@ recognition.onend = function() {
 }
 
 recognition.onresult = function(event) {
-	
+	var i; 
+	for (i = 0; i < 4; i++)
+	{
+		phrase[i] = idunno;
+	}
+	speechAnalysis(phrase);
 }
 
 

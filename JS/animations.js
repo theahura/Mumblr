@@ -1,6 +1,6 @@
 $(document).ready(function(){	
 	
-	$("#arghButton").click(function() {
+	$("#downbutton").click(function() {
 		$("#screen1").slideUp();
 		console.log("ayy lmao?");
 	});

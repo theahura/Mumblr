@@ -11,6 +11,10 @@ var recognizing = false;
 //init recognition things
 var recognition = new webkitSpeechRecognition();
 recognition.lang = "en-US";
+recognition.continuous = true;
+recognition.interimResults = true;
+
+var phrase = [];
 
 recognition.onstart = function() {
 	recognizing = true;
@@ -20,7 +24,9 @@ recognition.onend = function() {
 	recognizing = false;
 }
 
-recognition.onresult() = function(event)
+recognition.onresult = function(event) {
+	
+}
 
 
 //main function for speech interruption

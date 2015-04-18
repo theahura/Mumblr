@@ -1,18 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
 <html>
-  <head>
-    <!-- latest jQuery direct from google's CDN -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-    </script>
 
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="css/mainUI.css" />
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" type="image/png" href="favicon-01.png">
+		<script>
+			var argh = new Audio ("argh.mp3");
+			function arghPlay() {
+				argh.play();
+				argh.currentTime = 0;
+			}
+		</script>
+		<script type="text/javascript" src=""></script>
+		<div class="background"> </div>
+		<body>
 
-  </head> 
+			<div class="header">
+					mumblr
+			</div>
 
-  <body>
+			<div id="screen1">
+				
+				
+				<div class="body">
+					<p>
+						Welcome to Mumblr! Mumblr (the working title) is an interactive speech thing that does whatever the fuck
+						we want really, we haven't quite decided on it yet but this is just filler text for
+						the things that come later. Right now I'm just typing random shit because I'm trying
+						to get this chingado to align center with a white box around it which is FUCKING
+						FRUSTRATING 
+					</p>
+					<p>
+						edit: ayy lmao
+					</p>
+					<p>
+						Click below to practice your orating skills!
+					</p>
+					
+				</div>
+				<div class="button" id="arghbutton">
+					<img src="downbutton-01.png" onclick="arghPlay()">
+				</div>
 
-  </body> 
 
-<html>
+			</div>
+
+
+		</body>
+
+	</head>
+
+
+</html>

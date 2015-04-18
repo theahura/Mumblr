@@ -1,0 +1,41 @@
+body {
+	background-image: url("tile.png");
+	overflow: hidden;
+}
+
+.header {
+	top:0px;
+	left:0px;
+	font-family: 'Poiret One', sans-serif;
+	font-size: 80pt;
+	color: white;
+	text-align: center;
+	background-color: #76C58E;
+	border-radius: 2px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.body {
+	font-family: "Raleway";
+	color: #313131;
+	text-align: left;
+	line-height: 150%;
+	background-color: white;
+	padding-left: 55px;
+	padding-right: 55px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 2px;
+	margin-left: 33%;
+	margin-right: 33%;
+	position: relative;
+	top: 150px;	
+}	
+
+.button {
+	position: relative;
+	text-align: center;
+	padding-top: 400px;
+}

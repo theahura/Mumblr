@@ -279,8 +279,10 @@ if (!('webkitSpeechRecognition' in window)) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
       } else {
-        interim_transcript += event.results[i][0].transcript;
-        checkBadWords(interim_transcript);
+        temp_transcript = interim_transcript;
+        var value = checkBadWords(interim_transcript);
+        if (!value)
+          interim_transcript += event.results[i][0].transcript;
       }
     }
     final_transcript = capitalize(final_transcript);

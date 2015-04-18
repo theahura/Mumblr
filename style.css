@@ -15,6 +15,7 @@ body {
 	position: fixed;
 	width: 100%;
 	z-index: 1;
+	cursor: pointer;
 }
 
 .body {
@@ -40,7 +41,7 @@ body {
 	padding-top: 400px;
 }
 
-#microphonebutton {
-	position: relative;
-	text-align: center;
+
+#screen2 {
+	
 }

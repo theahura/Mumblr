@@ -7,5 +7,13 @@ $(document).ready(function(){
 
 	$(".header").click(function() {
 		$("#screen1").slideDown();
-	})
+	});
+
+	//so proud of this
+	$(".header").hover(function() {
+		$(".header").css("background-color", "#84CB99");
+		}, function() {
+		$(".header").css("background-color", "#76C58E");	
+	});	
+
 })

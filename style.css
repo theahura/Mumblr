@@ -39,3 +39,8 @@ body {
 	text-align: center;
 	padding-top: 400px;
 }
+
+#microphonebutton {
+	position: relative;
+	text-align: center;
+}

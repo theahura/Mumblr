@@ -6,16 +6,9 @@ var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
-
-if (!('webkitSpeechRecognition' in window)) {
-  upgrade();
-} else {
-
-  start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
-
 
   recognition.onstart = function() {
     recognizing = true;
@@ -64,11 +57,6 @@ if (!('webkitSpeechRecognition' in window)) {
       return;
     }
 
-    if (create_email) {
-      create_email = false;
-      createEmail();
-    }
-
   };
 
 
@@ -95,12 +83,6 @@ if (!('webkitSpeechRecognition' in window)) {
       showButtons('inline-block');
     }
  };
- 
-
-	function upgrade() {
-	  start_button.style.visibility = 'hidden';
-	  console.log("Upgrade your shit!");
-	}
 
 
 	var two_line = /\n\n/g;
@@ -118,39 +100,6 @@ if (!('webkitSpeechRecognition' in window)) {
 	  return s.replace(first_char, function(m) { return m.toUpperCase(); });
 	}
 
-
-	function createEmail() {
-	  var n = final_transcript.indexOf('\n');
-	  if (n < 0 || n >= 80) {
-	    n = 40 + final_transcript.substring(40).indexOf(' ');
-	  }
-	  var subject = encodeURI(final_transcript.substring(0, n));
-	  var body = encodeURI(final_transcript.substring(n + 1));
-	  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-	}
-
-
-	function copyButton() {
-	  if (recognizing) {
-	    recognizing = false;
-	    recognition.stop();
-	  }
-	  copy_button.style.display = 'none';
-	}
-
-
-	function emailButton() {
-	  if (recognizing) {
-	    create_email = true;
-	    recognizing = false;
-	    recognition.stop();
-	  } else {
-	    createEmail();
-	  }
-	  email_button.style.display = 'none';
-	}
-
-
 	function startButton(event) {
 	  if (recognizing) {
 	    recognition.stop();
@@ -164,24 +113,8 @@ if (!('webkitSpeechRecognition' in window)) {
 	  interim_span.innerHTML = '';
 	  start_img.src = 'microphone-disabled.png';
 	  console.log("Allow");
-	  showButtons('none');
 	  start_timestamp = event.timeStamp;
 	}
-
-	var current_style;
-
-	function showButtons(style) {
-	  
-	  if (style == current_style) {
-	    return;
-	  }
-
-	  current_style = style;
-	  copy_button.style.display = style;
-	  email_button.style.display = style;
-
-	}
-
 
 	function checkBadWords(transcript) {
 		var bool = false;
@@ -197,4 +130,3 @@ if (!('webkitSpeechRecognition' in window)) {
 
 		return bool;
 	}
-}

@@ -280,6 +280,7 @@ if (!('webkitSpeechRecognition' in window)) {
         final_transcript += event.results[i][0].transcript;
       } else {
         interim_transcript += event.results[i][0].transcript;
+        checkBadWords(interim_transcript);
       }
     }
     final_transcript = capitalize(final_transcript);
@@ -362,6 +363,12 @@ function showInfo(s) {
   }
 }
 var current_style;
+var argh = new Audio ("sound/argh.mp3");
+      
+  function arghPlay() {
+    argh.play();
+    argh.currentTime = 0;
+  }
 function showButtons(style) {
   if (style == current_style) {
     return;

@@ -115,16 +115,22 @@ var start_timestamp;
 	  console.log("Allow");
 	  start_timestamp = event.timeStamp;
 	}
-
+	var argh = new Audio ("sound/argh.mp3");
+			
+	function arghPlay() {
+		argh.play();
+		argh.currentTime = 0;
+	}
 	function checkBadWords(transcript) {
 		var bool = false;
 
 		if ("uh" in transcript || "um" in transcript) {
-			//PLAY ARGH
+			arghPlay();
 			bool = true;
 		}
 
 		if ("like" in transcript) {
+			arghPlay();
 			bool = true;
 		}
 

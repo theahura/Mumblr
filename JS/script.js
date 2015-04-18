@@ -12,6 +12,8 @@ $(".button").click(function() {
 
 var recognitiongnizing = false;
 
+var recognizing = false;
+
 
 //init recognition things
 var recognition = new webkitSpeechRecognition();
@@ -30,7 +32,12 @@ recognition.onend = function() {
 }
 
 recognition.onresult = function(event) {
-	
+	var i; 
+	for (i = 0; i < 4; i++)
+	{
+		phrase[i] = idunno;
+	}
+	speechAnalysis(phrase);
 }
 
 

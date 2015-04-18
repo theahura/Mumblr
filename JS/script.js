@@ -115,7 +115,7 @@ var start_timestamp;
 	  console.log("Allow");
 	  start_timestamp = event.timeStamp;
 	}
-	var argh = new Audio ("sound/argh.mp3");
+	var argh = new Audio ("argh.mp3");
 			
 	function arghPlay() {
 		argh.play();

@@ -5,10 +5,6 @@ function arghPlay() {
 	argh.currentTime = 0;
 }
 
-<<<<<<< HEAD
-
-
-=======
 var recognizing = false;
 
 

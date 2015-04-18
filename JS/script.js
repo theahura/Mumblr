@@ -94,6 +94,7 @@ if (!('webkitSpeechRecognition' in window)) {
     recognizing = true;
     showInfo('info_speak_now');
     start_img.src = 'mic-animate.gif';
+    console.log("working!")
   };
   recognition.onerror = function(event) {
     if (event.error == 'no-speech') {

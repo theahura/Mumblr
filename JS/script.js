@@ -6,6 +6,7 @@ function arghPlay() {
 }
 
 
+var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
@@ -16,8 +17,6 @@ recognition.lang = "en-US";
 recognition.continuous = true;
 recognition.interimResults = true;
 
-var final_transcript;
-var phrase = [];
 
 recognition.onstart = function() {
 	recognizing = true;
@@ -46,7 +45,7 @@ recognition.onend = function() {
 }
 
 recognition.onresult = function(event) {
-	 var interim_transcript = '';
+	var interim_transcript = '';
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
@@ -55,8 +54,8 @@ recognition.onresult = function(event) {
       }
     }
     final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
     console.log(final_transcript);
+    final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
 }
 

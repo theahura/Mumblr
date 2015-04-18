@@ -10,7 +10,7 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
-
+console.log("fuck you");
 //init recognition things
 var recognition = new webkitSpeechRecognition();
 recognition.lang = "en-US";

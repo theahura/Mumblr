@@ -144,7 +144,9 @@ if (!('webkitSpeechRecognition' in window)) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
       } else {
-        interim_transcript += event.results[i][0].transcript;
+        var temp_transcript = interim_transcript;
+        if (!checkBadWords(temp_transcript))
+        	interim_transcript += event.results[i][0].transcript;
       }
     }
     final_transcript = capitalize(final_transcript);
@@ -153,8 +155,8 @@ if (!('webkitSpeechRecognition' in window)) {
     if (final_transcript || interim_transcript) {
       showButtons('inline-block');
     }
-  };
-}
+ };
+ 
 function upgrade() {
   start_button.style.visibility = 'hidden';
   showInfo('info_upgrade');
@@ -236,4 +238,16 @@ function showButtons(style) {
   email_button.style.display = style;
   copy_info.style.display = 'none';
   email_info.style.display = 'none';
+}
+
+function checkBadWords(transcript) {
+	var bool = false;
+	if ("uh" in transcript) || "um" in transcript) {
+		//PLAY ARGH
+		bool = true;
+	}
+	if ("like" in transcript) {
+		bool = true;
+	}
+	return bool;
 }

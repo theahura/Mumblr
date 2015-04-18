@@ -122,17 +122,20 @@ var start_timestamp;
 		argh.currentTime = 0;
 	}
 	function checkBadWords(transcript) {
-		var bool = false;
+	  var bool = false;
+	  var uh = "uh";
+	  var um = "um";
+	  var like = "like";
 
-		if ("uh" in transcript || "um" in transcript) {
-			arghPlay();
-			bool = true;
-		}
+	  if (transcript.indexOf(uh) > -1 || transcript.indexOf(um) > -1) {
+	    arghPlay();
+	    bool = true;
+	  }
 
-		if ("like" in transcript) {
-			arghPlay();
-			bool = true;
-		}
+	  if (transcript.indexOf(like) > -1) {
+	    arghPlay();
+	    bool = true;
+	  }
 
-		return bool;
+	  return bool;
 	}

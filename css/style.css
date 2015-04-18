@@ -53,6 +53,9 @@ body {
 	padding-top: 400px;
 }
 
+#downbutton{ 
+	cursor: pointer;
+}
 
 #screen2 {
 }

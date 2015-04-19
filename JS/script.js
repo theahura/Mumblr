@@ -6,6 +6,7 @@ var start_timestamp;
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
+  recognition.maxAlternatives = 0;
 
   recognition.onstart = function() {
     recognizing = true;

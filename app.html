@@ -5,6 +5,7 @@
 	<head>
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Mumblr</title>
+		<script src="http://54.86.173.127:3004/socket.io/socket.io.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/png" href="img/favicon-01.png">
@@ -25,7 +26,7 @@
 				<br>
 				<br>
 				<div id="crutchWords" contenteditable>
-					like um uh
+					like
 				</div>
 				<script>
 					if (localStorage.crutchWords) {
@@ -51,12 +52,17 @@
 			<div align="center">
 				<img src="img/upbutton.png" id="downbutton">
 			</div>
+			<div id="mistakes">
+				<b>0 MISTAKES</b>
+			</div>
 		</div>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src = "JS/script.js"></script>
 		<script src = "JS/animations.js"></script>
 		<script src = "JS/html_interface.js"></script>
+		<script src = "JS/serverhandler.js"></script>
+		<script src = "JS/sound.js"></script>
 	</body>
 
 	

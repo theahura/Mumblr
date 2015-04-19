@@ -4,7 +4,7 @@
 
 	<head>
 		<link rel="stylesheet" href="css/style.css" />
-		
+		<title>Mumblr</title>
 		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" type="image/png" href="img/favicon-01.png">
@@ -16,28 +16,40 @@
 				mumblr
 		</div>
 
-		<!-- the part that I eventually want to slide up and into the voice controls -->
-		<div id="screen1">
+		<!-- the part that will slide up and into the voice controls -->
+		<div id="screen1" class="screen">
 			
-			<div class="body">
-				<p>
-					Welcome to Mumblr! Body text should go here.
+			<div class="welcome">
+				<p id="instructions">
+					Enter your crutch words, separated with spaces:
 				</p>
-				<p>
-					edit: ayy lmao
-				</p>
-				<p>
-					Click below to practice your orating skills!
-				</p>
-				
+				<br>
+				<br>
+				<!-- Tyler, you have to grab this with a function like getContent() {document.getElementById("crutchwords").value = document.getElementById("crutchwords")-->
+				<div id="crutchWords" contenteditable>
+					like um uh
+				</div>
+							
 			</div>
-			<div class="button" id="arghButton">
-				<img src="img/downbutton-01.png">
+			<div class = "upbutton" >
+				<img src="img/upbutton.png" id="upbutton">
 			</div>
+			
 		</div>
 
-		<div id="input-page">
-			<img class = "button" id="microphone" src="img/microphonebutton.png">
+		
+		<div class="spacer-35"></div>
+		
+
+		<!-- voice controls and the second screen are below -->
+		<div id="screen2">
+			<div align="center">
+				<img src="img/microphone.png">
+			</div>
+			<div class="spacer-5"></div>
+			<div align="center">
+				<img src="img/upbutton.png" id="downbutton">
+			</div>
 		</div>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

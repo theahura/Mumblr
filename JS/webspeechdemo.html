@@ -225,7 +225,7 @@ if (!('webkitSpeechRecognition' in window)) {
   start_button.style.display = 'inline-block';
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
-  recognition.interimResults = true;
+  recognition.interimResults = false;
   recognition.onstart = function() {
     recognizing = true;
     showInfo('info_speak_now');
@@ -279,7 +279,10 @@ if (!('webkitSpeechRecognition' in window)) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
       } else {
-        interim_transcript += event.results[i][0].transcript;
+        temp_transcript = interim_transcript;
+        var value = checkBadWords(interim_transcript);
+        if (!value)
+          interim_transcript += event.results[i][0].transcript;
       }
     }
     final_transcript = capitalize(final_transcript);
@@ -362,6 +365,33 @@ function showInfo(s) {
   }
 }
 var current_style;
+var argh = new Audio ("argh.mp3");
+      
+function arghPlay() {
+  argh.play();
+  argh.currentTime = 0;
+}
+
+function checkBadWords(transcript) {
+  var bool = false;
+  var uh = "uh";
+  var um = "um";
+  var like = "like";
+
+  if (transcript.indexOf(uh) > -1 || transcript.indexOf(um) > -1) {
+    arghPlay();
+    bool = true;
+  }
+
+  if (transcript.indexOf(like) > -1) {
+    arghPlay();
+    bool = true;
+  }
+
+  return bool;
+}
+
+
 function showButtons(style) {
   if (style == current_style) {
     return;

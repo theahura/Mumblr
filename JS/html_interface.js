@@ -1,0 +1,4 @@
+$("#startbutton").click(function() {
+	startbutton();
+});
+

@@ -4,8 +4,11 @@ var potentialCrutch = {}
 
 var currentTranscript = "";
 var currentIndex = 0;
+
 var buffer = [];
+var timeBuffer = [];
 var bufferSize = 4;
+
 var waitingForResponses = 0;
 var weight = 0.0;
 
@@ -84,8 +87,6 @@ recognition.onresult = function(event) {
     if (checkAbsoluteCrutchWords(buffer)) 
     {
       arghPlay();
-      waitingForResponses = 0;
-      weight = 0.0;
     }
     else if(checkPotentialCrutchWords(buffer))
     {
@@ -121,5 +122,6 @@ var argh = new Audio ("argh.mp3");
 
 function updateCrutchWords()
 {
-
+  absoluteCrutch = $("#crutchWords").html().split(" ");
+  potentialCrutch = $("#sometimesCrutchWords").html().split(" ");
 }

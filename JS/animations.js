@@ -1,14 +1,3 @@
-function returnArray(id) {
-
-	//get the VALUE of an html text object (not the object itself)
-	//use javascript string.split(" ") to return an array created from the word split by spaces
-	var str = $("#"+id).html();
-	console.log(str);
-	var res = str.split(" ");
-	console.log(res);
-	return res;
-}
-
 //slides everythng under "screen1" up
 $("#upbutton").click(function() {
 	$("#screen1").slideUp();

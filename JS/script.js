@@ -64,7 +64,12 @@ var start_timestamp;
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       interim_transcript = event.results[i][0].transcript;
-      checkCrutchWords(interim_transcript);
+      console.log(interim_transcript);
+      var value = checkCrutchWords(interim_transcript);
+      if (value) {
+        interim_transcript = '';
+        break;
+      }
     }
   }
 

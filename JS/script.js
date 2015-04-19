@@ -158,7 +158,6 @@ function checkAbsoluteCrutchWords(buffer)
 
 function checkPotentialCrutchWords(buffer)
 {
-  console.log(buffer)
   for(var i = 0; i < buffer.length; i++)
   {
     if(potentialCrutch.indexOf(buffer[i]) != -1)

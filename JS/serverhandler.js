@@ -14,7 +14,7 @@ socket = io('http://54.86.173.127:3004');
  */
 socket.on('connect', function() 
 {
-	alert("Connected")
+	//alert("Connected")
 });
 
 /*File handles all of the incoming data from the server, and passes it to the right spot*/
@@ -23,7 +23,7 @@ socket.on("serverToClient", function(data)
 	console.log(data)
 	if(data.name == "Error")
 	{
-		alert("Error: " + data.message)
+		console.log("Error: " + data.message)
 	}
 	else if(data.name == "NGramResponse")
 	{
@@ -42,7 +42,7 @@ socket.on("serverToClient", function(data)
 
 			weight += 0.15;
 
-			if(weight > .7)
+			if(weight > .9)
 			{
 				arghPlay();
 			}

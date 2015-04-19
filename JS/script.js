@@ -1,6 +1,6 @@
 
-var absoluteCrutch = {}
-var potentialCrutch = {}
+var absoluteCrutch = []
+var potentialCrutch = []
 
 var currentTranscript = "";
 var currentIndex = 0;
@@ -71,7 +71,11 @@ recognition.onresult = function(event) {
 
     var transcriptArray = transcript.split(" ");
 
-    var shortenedArray = transcriptArray.splice(0, i);
+    var shortenedArray = transcriptArray;
+
+    shortenedArray.splice(0, i);
+
+    console.log(shortenedArray);
 
     for(var i = 0; i < shortenedArray.length; i++)
     {
@@ -106,16 +110,14 @@ recognition.onresult = function(event) {
 }
 
 
-function startButton(event) {
+function startButton() {
   if (recognizing) {
     recognition.stop();
     return;
   }
   recognition.start();
-  updateCrutchWords();
   ignore_onend = false;
  // console.log("Start!");
-  start_timestamp = event.timeStamp;
 }
 
 var argh = new Audio ("argh.mp3");
@@ -124,4 +126,30 @@ function updateCrutchWords()
 {
   absoluteCrutch = $("#crutchWords").html().split(" ");
   potentialCrutch = $("#sometimesCrutchWords").html().split(" ");
+}
+
+function checkAbsoluteCrutchWords(buffer)
+{
+  for(var i = 0; i < buffer.length; i++)
+  {
+    if(absoluteCrutch.indexOf(buffer[i]) != -1)
+    {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function checkPotentialCrutchWords(buffer)
+{
+  for(var i = 0; i < buffer.length; i++)
+  {
+    if(potentialCrutch.indexOf(buffer[i]) != -1)
+    {
+      return true;
+    }
+  }
+  
+  return false;
 }

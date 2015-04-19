@@ -1,16 +1,17 @@
 var arghRandom = new Audio("argh.mp3")
 
-function arghRandom() {
-  var arghs = ["argh.mp3", "argh1.mp3", "argh.mp2", "argh.mp3", "argh.mp4", "argh.mp5", "argh.mp6", "argh.mp7", "argh.mp8"];
-  var rand = arghs[Math.floor(Math.random() * arghs.length)];
-  var arghRandom = arghs[rand];
-  arghRandom.play();
-  arghRandom.currentTime = 0;
-}
+// function playArghRandom() 
+// {
+//   var arghs = ["argh.mp3", "argh1.mp3", "argh2.mp3", "argh3.mp3", "argh4.mp3", "argh5.mp3", "argh6.mp3", "argh7.mp3", "argh8.mp3"];
+//   var rand = Math.floor(Math.random() * arghs.length);
+//   arghRandom = new Audio(arghs[rand]);
+//   arghRandom.play();
+//   arghRandom.currentTime = 0;
+// }
 
 function arghPlay()
 {
-	arghRandom();
+	arghRandom.play()
 	waitingForResponses = 0;
     weight = 0.0;
 }

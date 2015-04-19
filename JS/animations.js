@@ -6,11 +6,7 @@ $("#upbutton").click(function() {
 	localStorage.crutchWords = document.getElementById("crutchWords").innerHTML;
 	localStorage.sometimesCrutchWords = document.getElementById("sometimesCrutchWords").innerHTML;
 
-	//loop that updates the two arrays
-	returnArray("crutchWords");
-	returnArray("sometimesCrutchWords");
-
-	console.log("ayy lmao?"); //I should take this out at some point
+	updateCrutchWords();
 });
 
 //slides everythin under "screen1" down

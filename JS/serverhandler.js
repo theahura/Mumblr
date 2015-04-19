@@ -27,6 +27,8 @@ socket.on("serverToClient", function(data)
 	}
 	else if(data.name == "NGramResponse")
 	{
+		console.log(data.value + " " + waitingForResponses + " " + weight);
+
 		if(waitingForResponses > 0)
 		{
 			waitingForResponses--;

@@ -87,7 +87,7 @@ var phrase = ['', '', '', '', ''];
 	  return s.replace(first_char, function(m) { return m.toUpperCase(); });
 	}
 
-	function startButton(event) {
+	function startButton() {
 	  if (recognizing) {
 	    recognition.stop();
 	    return;

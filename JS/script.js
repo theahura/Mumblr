@@ -106,12 +106,12 @@ var start_timestamp;
 	function checkCrutchWords(transcript) {
 	  var bool = false;
 
-	  if ("uh" in transcript || "um" in transcript) {
+	  if (transcript.indexOf("uh") > -1 || transcript.indexOf("um") > -1) {
 	    arghPlay();
 	    bool = true;
 	  }
 
-	  if ("like" in transcript) {
+	  if (transcript.indexOf("like") > -1) {
 	    arghPlay();
 	    bool = true;
 	  }

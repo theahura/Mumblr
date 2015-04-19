@@ -55,8 +55,7 @@ recognition.onresult = function(event) {
     console.log(transcript);
     if (checkCrutchWords(transcript)) {
       arghPlay();
-      recognition.stop();
-      recognition.start();
+      break;
     }
   }
   

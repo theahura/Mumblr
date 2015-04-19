@@ -7,6 +7,7 @@ var start_timestamp;
   recognition.continuous = true;
   recognition.interimResults = true;
   recognition.maxAlternatives = 0;
+  console.log("working");
 
   recognition.onstart = function() {
     recognizing = true;
@@ -59,16 +60,13 @@ var start_timestamp;
 
 
   recognition.onresult = function(event) {
-    var transcript = ['', '', '', '', ''];
+    var interim_transcript = '';
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-      var j;
-      for (j = 0; j < 4; j++) {
-        if (!checkCrutchWords(transcript)
-          transcript[j] = event.results[i][0].transcript;
-      }
+      interim_transcript = event.results[i][0].transcript;
+      checkCrutchWords(interim_transcript);
     }
-  };
+  }
 
 
 	var two_line = /\n\n/g;

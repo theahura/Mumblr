@@ -1,6 +1,4 @@
 
-var phrase = ['', '', '', ''];
-
 var recognition = new webkitSpeechRecognition();
 
 recognition.continuous = true;
@@ -52,23 +50,16 @@ recognition.onend = function() {
 recognition.onresult = function(event) {
 
   for (var i = event.resultIndex; i < event.results.length; ++i) {
-
-    console.log(event.results[0][i].transcript);
-    phrase.push(event.results[0][i].transcript);
-    phrase.splice(0, 1);
-    console.log(phrase);
-
-    for (word in phrase) {
-
-      if (checkCrutchWords(word)) {
-        arghPlay();
-        phrase.remove(phrase.indexOf(word));
-        recognition.stop();
-        recognition.start();
-      }
+    var transcript = '';
+    transcript = event.results[i][0].transcript;
+    console.log(transcript);
+    if (checkCrutchWords(transcript)) {
+      arghPlay();
+      recognition.stop();
+      recognition.start();
     }
-
   }
+  
 }
 
 

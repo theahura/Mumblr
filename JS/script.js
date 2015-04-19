@@ -1,6 +1,4 @@
 
-
-var create_email = false;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;

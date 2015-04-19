@@ -1,0 +1,52 @@
+html
+{
+	height: 100%;
+	width: 100%;
+}
+body {
+	background-image: url("tile.png");
+	height: 100%;	
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.spacer-35
+{
+	height: 35%;
+}
+
+.header {
+	top:0px;
+	left:0px;
+	font-family: 'Poiret One', sans-serif;
+	font-size: 80pt;
+	color: white;
+	text-align: center;
+	background-color: #76C58E;
+	border-radius: 2px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.welcome {
+	font-family: "Raleway";
+	color: #313131;
+	text-align: center;
+	line-height: 150%;
+	padding-left: 55px;
+	padding-right: 55px;
+	border-radius: 2px;
+	margin-left: 33%;
+	margin-right: 33%;
+	position: absolute;
+	top: 560px;	
+	z-index: 10;
+	font-size: 18pt;
+}
+
+#imgholder {
+	padding-top: 150px;
+}
+

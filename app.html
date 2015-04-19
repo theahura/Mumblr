@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Mumblr</title>
+		<link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" type="image/png" href="img/favicon-01.png">
+		<div class="background"> </div>
+		
+	</head>
+	<body>
+		<div class="header">
+				mumblr
+		</div>
+
+		<div id="screen1" class="screen">
+			
+			<div class="welcome">
+				<p id="instructions">
+					Enter your crutch words, separated with spaces:
+				</p>
+				<br>
+				<br>
+				<div id="crutchWords" contenteditable>
+					like um uh
+				</div>
+				<script>
+					if (localStorage.crutchWords) {
+						document.getElementById("crutchWords").innerHTML = localStorage.crutchWords;
+					}
+				</script>
+							
+			</div>
+			<div class = "upbutton" >
+				<img src="img/upbutton.png" id="upbutton">
+			</div>
+			
+		</div>
+
+		
+		<div class="spacer-35"></div>
+		
+		<div id="screen2">
+			<div align="center">
+				<img src="img/microphone.png" id="startbutton">
+			</div>
+			<div class="spacer-5"></div>
+			<div align="center">
+				<img src="img/upbutton.png" id="downbutton">
+			</div>
+		</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src = "JS/script.js"></script>
+		<script src = "JS/animations.js"></script>
+		<script src = "JS/html_interface.js"></script>
+	</body>
+
+	
+
+
+</html>

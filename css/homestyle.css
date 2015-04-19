@@ -1,0 +1,34 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-image: url("public-speaking.png");
+}
+
+#title {
+	font-family: 'Poiret One', sans-serif;
+	color: white;
+	text-align: center;
+	padding-top: 20%;
+	font-size: 18pt;
+}
+
+#subtitle {
+	position: relative;
+	font-family: 'Poiret One', sans-serif;
+	color: white;
+	text-align: center;
+	padding-top: 4%;
+	font-size: 18pt;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+

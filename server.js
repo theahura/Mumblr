@@ -169,7 +169,7 @@ function checkThreeTree(socket, data)
 
 function checkFourTree(socket, data)
 {
-	if(fourTree.doesNGramExist(fourTree, data))
+	if(doesNGramExist(fourTree, data))
 	{
 		socket.emit('serverToClient',{
 			name: "NGramResponse",

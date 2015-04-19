@@ -88,3 +88,11 @@ body {
 #startbutton {
 	cursor: pointer;
 }
+
+#mistakes {
+	position: absolute;
+	margin-top: -2%;
+	margin-left: 90%;
+	font-family: "Raleway";
+	color: #4d4d4d;
+}

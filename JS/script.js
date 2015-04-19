@@ -1,5 +1,4 @@
 
-var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
@@ -50,8 +49,8 @@ var start_timestamp;
     }
 
     start_img.src = 'microphone.png';
-    if (!final_transcript) {
-      console.log("START")
+    if (false) {
+      console.log("START");
       return;
     }
 
@@ -59,26 +58,15 @@ var start_timestamp;
 
 
   recognition.onresult = function(event) {
-    var interim_transcript = '';
+    var transcript = [];
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-
-      if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
-      } else {
-
-        var temp_transcript = interim_transcript;
-        if (!checkBadWords(temp_transcript))
-        	interim_transcript += event.results[i][0].transcript;
+        var j;
+        for (j = 0; j < 4; ++j) {
+          if (!checkCrutchWords(transcript)
+            transcript[j] = event.results[i][0];
+        }
       }
-    }
-
-    final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
-
-    if (final_transcript || interim_transcript) {
-      showButtons('inline-block');
     }
  };
 
@@ -104,11 +92,8 @@ var start_timestamp;
 	    return;
 	  }
 
-	  final_transcript = '';
 	  recognition.start();
 	  ignore_onend = false;
-	  final_span.innerHTML = '';
-	  interim_span.innerHTML = '';
 	  start_img.src = 'microphone-disabled.png';
 	  console.log("Allow");
 	  start_timestamp = event.timeStamp;
@@ -119,18 +104,16 @@ var start_timestamp;
 		argh.play();
 		argh.currentTime = 0;
 	}
-	function checkBadWords(transcript) {
-	  var bool = false;
-	  var uh = "uh";
-	  var um = "um";
-	  var like = "like";
 
-	  if (transcript.indexOf(uh) > -1 || transcript.indexOf(um) > -1) {
+	function checkCrutchWords(transcript) {
+	  var bool = false;
+
+	  if ("uh" in transcript || "um" in transcript) {
 	    arghPlay();
 	    bool = true;
 	  }
 
-	  if (transcript.indexOf(like) > -1) {
+	  if ("like" in transcript) {
 	    arghPlay();
 	    bool = true;
 	  }

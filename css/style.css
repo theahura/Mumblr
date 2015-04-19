@@ -84,3 +84,7 @@ body {
     transform: rotate(180deg);
     cursor: pointer;
 }
+
+#startbutton {
+	cursor: pointer;
+}

@@ -1,4 +1,4 @@
 $("#startbutton").click(function() {
-	startbutton();
+	startButton();
 });
 

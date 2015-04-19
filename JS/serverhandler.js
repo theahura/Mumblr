@@ -27,7 +27,22 @@ socket.on("serverToClient", function(data)
 	}
 	else if(data.name == "NGramResponse")
 	{
-		alert(data.value)	
+		if(waitingForResponses > 0)
+		{
+			if(!data.value)
+			{
+				weight += 0.15;
+			}
+
+			waitingForResponses--;
+
+			if(weight > .7)
+			{
+				arghPlay();
+				waitingForResponses = 0;
+      			weight = 0.0;
+			}
+		}
 	}	
 });
 

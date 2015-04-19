@@ -92,7 +92,7 @@ var phrase = ['', '', '', '', ''];
 	    recognition.stop();
 	    return;
 	  }
-
+    interim_transcript = '';
 	  recognition.start();
 	  ignore_onend = false;
 	  start_img.src = 'microphone-disabled.png';

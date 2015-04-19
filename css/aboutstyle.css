@@ -50,3 +50,6 @@ body {
 	padding-top: 150px;
 }
 
+#centerimage {
+	cursor: pointer;
+}

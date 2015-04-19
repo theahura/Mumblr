@@ -20,36 +20,36 @@
 		<div id="screen1" class="screen">
 			
 			<div class="welcome">
-				<p>
-					Welcome to Mumblr, an interactive speech training app!
-				</p>
-				<p>
-					Every time you use a "crutch word" (i.e. "um" or "like"), Mumblr
-					will provide vocal feedback in the form of a harsh noise and condition
-					you to become a better, more effective speaker!
-				</p>
-				<p>
+				<p id="instructions">
 					Enter your crutch words, separated with spaces:
 				</p>
-				<input type="text" name="name">
-				<p>
-					Finished? Click below to practice your oration skills!
-				</p>
-				
-				<div class = "button">
-				<input type="image" alt="Begin Speaking" src="img/downbutton-01.png" id="downbutton">
+				<br>
+				<br>
+				<!-- Tyler, you have to grab this with a function like getContent() {document.getElementById("crutchwords").value = document.getElementById("crutchwords")-->
+				<div id="crutchWords" contenteditable>
+					like um uh
 				</div>
+							
+			</div>
+			<div class = "upbutton" >
+				<img src="img/upbutton.png" id="upbutton">
 			</div>
 			
 		</div>
 
-		<div class="spacer-30"></div>
+		
+		<div class="spacer-35"></div>
+		
 
 		<!-- voice controls and the second screen are below -->
 		<div id="screen2">
 			<div align="center">
 				<img src="img/microphone.png">
-			</div>	
+			</div>
+			<div class="spacer-5"></div>
+			<div align="center">
+				<img src="img/upbutton.png" id="downbutton">
+			</div>
 		</div>
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

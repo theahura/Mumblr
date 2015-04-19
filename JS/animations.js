@@ -1,15 +1,17 @@
 $(document).ready(function(){	
 	
-	$("#downbutton").click(function() {
+	//slides everythng under "screen1" up
+	$("#upbutton").click(function() {
 		$("#screen1").slideUp();
-		console.log("ayy lmao?");
+		console.log("ayy lmao?"); //I should take this out at some point
 	});
 
-	$(".header").click(function() {
+	//slides everythin under "screen1" down
+	$("#downbutton").click(function() {
 		$("#screen1").slideDown();
 	});
 
-	//so proud of this
+	//so proud of this light-up animation
 	$(".header").hover(function() {
 		$(".header").css("background-color", "#84CB99");
 		}, function() {

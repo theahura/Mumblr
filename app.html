@@ -24,16 +24,27 @@
 					Enter your crutch words, separated with spaces:
 				</p>
 				<br>
-				<br>
 				<div id="crutchWords" contenteditable>
-					like
+					um uh
 				</div>
 				<script>
 					if (localStorage.crutchWords) {
 						document.getElementById("crutchWords").innerHTML = localStorage.crutchWords;
 					}
 				</script>
-							
+				<br>
+				<br>
+				<p id="instructions">
+					Enter words you would sometimes use as crutch words:
+				</p>
+				<div id="sometimesCrutchWords" contenteditable>
+					like
+				</div>
+				<script>
+					if (localStorage.sometimesCrutchWords) {
+						document.getElementById("sometimesCrutchWords").innerHTML = localStorage.sometimesCrutchWords;
+					}
+				</script>
 			</div>
 			<div class = "upbutton" >
 				<img src="img/upbutton.png" id="upbutton">

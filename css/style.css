@@ -50,7 +50,7 @@ body {
 .upbutton {
 	position: relative;
 	text-align: center;
-	padding-top: 30%;
+	padding-top: 25%;
 }
 
 #upbutton{ 
@@ -58,6 +58,13 @@ body {
 }
 
 #crutchWords {
+	border-color: #76C58E;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 2px;
+}
+
+#sometimesCrutchWords {
 	border-color: #76C58E;
 	border-style: solid;
 	border-width: 1px;

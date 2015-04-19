@@ -14,7 +14,6 @@ var phrase = ['', '', '', '', ''];
   recognition.onstart = function() {
     recognizing = true;
     console.log("Speak now");
-    start_img.src = 'mic-flashing.gif';
     console.log("working!")
   };
 
@@ -22,13 +21,11 @@ var phrase = ['', '', '', '', ''];
   recognition.onerror = function(event) {
 
     if (event.error == 'no-speech') {
-      start_img.src = 'microphone.png';
       console.log("No speech detected");
       ignore_onend = true;
     }
 
     if (event.error == 'audio-capture') {
-      start_img.src = 'microphone.png';
       console.log("There appears to be no microphone");
       ignore_onend = true;
     }
@@ -52,7 +49,6 @@ var phrase = ['', '', '', '', ''];
       return;
     }
 
-    start_img.src = 'microphone.png';
     if (false) {
       console.log("START");
       return;
@@ -64,7 +60,7 @@ var phrase = ['', '', '', '', ''];
   recognition.onresult = function(event) {
     var interim_transcript;
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-      console.log(results[0][i]);
+      console.log(event.results[0][i]);
       phrase.push(event.results[0][i]);
       phrase.splice(0, 1);
       console.log(phrase);
@@ -95,7 +91,6 @@ var phrase = ['', '', '', '', ''];
     interim_transcript = '';
 	  recognition.start();
 	  ignore_onend = false;
-	  start_img.src = 'microphone-disabled.png';
 	  console.log("Allow");
 	  start_timestamp = event.timeStamp;
 

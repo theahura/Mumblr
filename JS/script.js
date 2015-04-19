@@ -3,6 +3,8 @@ var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
+var phrase = ['', '', '', '', ''];
+
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
@@ -60,16 +62,12 @@ var start_timestamp;
 
 
   recognition.onresult = function(event) {
-    var interim_transcript = '';
-
+    var interim_transcript;
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-      interim_transcript = event.results[i][0].transcript;
-      console.log(interim_transcript);
-      var value = checkCrutchWords(interim_transcript);
-      if (value) {
-        interim_transcript = '';
-        break;
-      }
+      console.log(results[0][i]);
+      phrase.push(event.results[0][i]);
+      phrase.splice(0, 1);
+      console.log(phrase);
     }
   }
 
@@ -100,7 +98,9 @@ var start_timestamp;
 	  start_img.src = 'microphone-disabled.png';
 	  console.log("Allow");
 	  start_timestamp = event.timeStamp;
+
 	}
+
 	var argh = new Audio ("argh.mp3");
 			
 	function arghPlay() {

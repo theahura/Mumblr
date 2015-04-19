@@ -88,6 +88,8 @@ fs.readFile('w3_.txt', 'utf8', function (err,data) {
   console.log(doesNGramExist(threeTree, ["i", "love", "you"]));
 });
 
+
+//____________________________________________________________________________________________________________________________________________________________________________________
 //starts not tree building stuff
 var io = require('socket.io').listen(3004);
 
@@ -106,7 +108,7 @@ io.sockets.on('connection', function(socket)
 
 function serverError(socket, message)
 {
-	socket.emit('ServerToClient',{
+	socket.emit('serverToClient',{
 		name: "Error",
 		message: message
 	});
@@ -117,31 +119,48 @@ function serverHandler(socket, incomingObj)
 	if(incomingObj.name == "checkNGram")
 	{
 		if(!incomingObj.ngram)
+		{
 			serverError(socket, "No ngram found");
+			return;			
+		}
 
-		if(incomingObj.ngram.length == 3)
-			checkThreeTree(socket, incomingObj.ngram);
-		else if (incomingObj.ngram.length == 4)
-			checkFourTree(socket, incomingObj.ngram);
-		else if (incomingObj.ngram.length == 5)
-			checkFiveTree(socket, incomingObj.ngram);
+		if(typeof incomingObj.ngram != "string")
+		{
+			serverError(socket, "String not input");
+			return;
+		}
+
+		var ngram = incomingObj.ngram.split(" ")
+
+		if(ngram.length == 3)
+			checkThreeTree(socket, ngram);
+		else if (ngram.length == 4)
+			checkFourTree(socket, ngram);
 		else
-			serverError(socket, "ngram not the right length <3, 4, 5>");
+		{
+			console.log(ngram)
+			serverError(socket, "ngram not the right length <3, 4>");
+			return;
+		}
+	}
+	else
+	{
+		serverError(socket, "No Name match");
 	}
 }
 
 function checkThreeTree(socket, data)
 {
-	if(threeTree.doesNGramExist(data))
+	if(doesNGramExist(threeTree, data))
 	{
-		socket.emit('ServerToClient',{
+		socket.emit('serverToClient',{
 			name: "NGramResponse",
 			value: true
 		});	
 	}
 	else
 	{
-		socket.emit('ServerToClient',{
+		socket.emit('serverToClient',{
 			name: "NGramResponse",
 			value: false
 		});
@@ -150,34 +169,16 @@ function checkThreeTree(socket, data)
 
 function checkFourTree(socket, data)
 {
-	if(fourTree.doesNGramExist(data))
+	if(fourTree.doesNGramExist(fourTree, data))
 	{
-		socket.emit('ServerToClient',{
+		socket.emit('serverToClient',{
 			name: "NGramResponse",
 			value: true
 		});
 	}
 	else
 	{
-		socket.emit('ServerToClient',{
-			name: "NGramResponse",
-			value: false
-		});
-	}
-}
-
-function checkFiveTree(socket, data)
-{
-	if(fiveTree.doesNGramExist(data))
-	{
-		socket.emit('ServerToClient',{
-			name: "NGramResponse",
-			value: true
-		});	
-	}
-	else
-	{
-		socket.emit('ServerToClient',{
+		socket.emit('serverToClient',{
 			name: "NGramResponse",
 			value: false
 		});

@@ -59,17 +59,16 @@ var start_timestamp;
 
 
   recognition.onresult = function(event) {
-    var transcript = [];
+    var transcript = ['', '', '', '', ''];
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-        var j;
-        for (j = 0; j < 4; ++j) {
-          if (!checkCrutchWords(transcript)
-            transcript[j] = event.results[i][0];
-        }
+      var j;
+      for (j = 0; j < 4; j++) {
+        if (!checkCrutchWords(transcript)
+          transcript[j] = event.results[i][0].transcript;
       }
     }
- };
+  };
 
 
 	var two_line = /\n\n/g;

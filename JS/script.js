@@ -58,30 +58,14 @@ var phrase = ['', '', '', '', ''];
 
 
   recognition.onresult = function(event) {
-    var interim_transcript;
     for (var i = event.resultIndex; i < event.results.length; ++i) {
-      console.log(event.results[0][i]);
+      console.log(event.results[0][i].item);
       phrase.push(event.results[0][i]);
       phrase.splice(0, 1);
       console.log(phrase);
     }
   }
 
-
-	var two_line = /\n\n/g;
-	var one_line = /\n/g;
-
-
-	function linebreak(s) {
-	  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
-	}
-
-	var first_char = /\S/;
-
-
-	function capitalize(s) {
-	  return s.replace(first_char, function(m) { return m.toUpperCase(); });
-	}
 
 	function startButton() {
 	  if (recognizing) {

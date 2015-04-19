@@ -1,4 +1,7 @@
 
+var absoluteCrutch = {}
+var potentialCrutch = {}
+
 var currentTranscript = "";
 var currentIndex = 0;
 var buffer = [];
@@ -108,6 +111,7 @@ function startButton(event) {
     return;
   }
   recognition.start();
+  updateCrutchWords();
   ignore_onend = false;
  // console.log("Start!");
   start_timestamp = event.timeStamp;
@@ -115,18 +119,7 @@ function startButton(event) {
 
 var argh = new Audio ("argh.mp3");
 
-function checkCrutchWords(transcript) {
-  var bool = false;
+function updateCrutchWords()
+{
 
-  if (transcript.indexOf("uh") > -1 || transcript.indexOf("um") > -1) {
-    arghPlay();
-    bool = true;
-  }
-
-  if (transcript.indexOf("like") > -1) {
-    arghPlay();
-    bool = true;
-  }
-
-  return bool;
 }

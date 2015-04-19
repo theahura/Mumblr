@@ -29,6 +29,11 @@
 				<div id="crutchWords" contenteditable>
 					like um uh
 				</div>
+				<script>
+					if (localStorage.crutchWords) {
+						document.getElementById("crutchWords").innerHTML = localStorage.crutchWords;
+					}
+				</script>
 							
 			</div>
 			<div class = "upbutton" >

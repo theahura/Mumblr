@@ -3,6 +3,7 @@ $(document).ready(function(){
 	//slides everythng under "screen1" up
 	$("#upbutton").click(function() {
 		$("#screen1").slideUp();
+		localStorage.crutchWords = document.getElementById("crutchWords").innerHTML;
 		console.log("ayy lmao?"); //I should take this out at some point
 	});
 
